@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="120dp"
+    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+    android:layout_gravity="center_horizontal"
+    >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_edt_email"
+        android:hint="@string/edtEmail"
+        android:textColor="@color/colorPrimary"
+        android:inputType="textEmailAddress"
+        android:textSize="12dp"
+        />
+</com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edtPassword"
+            android:textColor="@color/colorPrimary"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_edt_password"
+            android:textSize="12dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:layout_marginTop="1dp"
+        android:id="@+id/checkboxPassword"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/mostrar_contraseña"
+        android:textSize="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnIngresar"
+        android:layout_width="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorTextButton"
+        android:text="@string/btnIngresar"
+        android:textSize="12dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRecuperarClave"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/recuperar_clave"
+        android:layout_gravity="center_horizontal"
+        android:textSize="12dp"
+        android:layout_marginTop="5dp"
+        android:isScrollContainer="true"
+        android:textColor="@color/colorPrimary"
+        android:drawableLeft="@drawable/ic_edt_password_recovery"
+        android:inputType="textCapSentences"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCrearCuenta"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="@string/btn_crear_cuenta"
+        android:textColor="@color/colorTextButton"
+        android:textSize="12dp"
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@drawable/ic_new_user"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Dogs</string>
+    <string name="edtEmail">Digita tu email</string>
+    <string name="edtPassword">Digita tu contraseña</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="recuperar_clave">Olvidaste tu clave?, Recupérala acá</string>
+    <string name="mostrar_contraseña">Mostrar contraseña</string>
+    <string name="btn_crear_cuenta">Crear cuenta</string>
+    <string name="titulo_recuperar_contraseña">Recuperar contraseña</string>
+    <string name="parrafo_recuperar_contraseña">Estimado usuario, a continuación digite su email y posteriormente el sistema enviará un enlace para que pueda recuperar su cuenta.</string>
+    <string name="titulo_crear_usuario">Crear usuario</string>
+    <string name="parrafo_crear_usuario">Estimado usuario, a continuación digite las credenciales que le son solicitadas para proceder con la creación de una nueva cuenta de usuario.</string>
+</resources>
