@@ -12,8 +12,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
-import com.oscarcelis.dogs.Activities.NewUserActivity;
-import com.oscarcelis.dogs.Activities.ResetPasswordActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.oscarcelis.dogs.activities.NewUserActivity;
+import com.oscarcelis.dogs.activities.ResetPasswordActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,10 +25,14 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCrearCuenta;
     private CheckBox chkvisualizarClave;
 
+    private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                abrirRecuperarContraseñaActivity();
+                abrirRecuperarClaveActivity();
             }
         });
 
@@ -73,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    private void abrirRecuperarContraseñaActivity() {
+    private void abrirRecuperarClaveActivity() {
         Intent i = new Intent(getApplicationContext(), ResetPasswordActivity.class);
         startActivity(i);
         finish();

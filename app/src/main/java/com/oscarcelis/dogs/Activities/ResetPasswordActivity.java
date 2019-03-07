@@ -1,4 +1,4 @@
-package com.oscarcelis.dogs.Activities;
+package com.oscarcelis.dogs.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
