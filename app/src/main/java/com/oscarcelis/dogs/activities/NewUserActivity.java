@@ -3,10 +3,12 @@ package com.oscarcelis.dogs.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.oscarcelis.dogs.MainActivity;
 import com.oscarcelis.dogs.R;
 
 public class NewUserActivity extends AppCompatActivity{
@@ -70,7 +73,7 @@ public class NewUserActivity extends AppCompatActivity{
 
         if(TextUtils.isEmpty(emailLogin)){
             //Valida si el campo email está vacío
-            Toast.makeText(this,"Ingrese un email",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Ingrese un email válido",Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -80,18 +83,20 @@ public class NewUserActivity extends AppCompatActivity{
             return;
         }
 
-/*        progressDialog.setMessage("Registrando usuario");
-        progressDialog.show();*/
 
         firebaseAuth.createUserWithEmailAndPassword(emailLogin, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                          //  progressDialog.hide();
-                            Toast.makeText(NewUserActivity.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                            toastOk();
+                            Intent intent = new Intent(getApplicationContext(), OkActivity.class);
+                            startActivity(intent);
+                            finish();
                         }else{
-                            Toast.makeText(NewUserActivity.this, "No se pudo registrar el usuario, intente de nuevo", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewUserActivity.this,
+                                    "No se pudo registrar el usuario, intente de nuevo",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -99,6 +104,11 @@ public class NewUserActivity extends AppCompatActivity{
     }
     // [END create_user_with_email]
 
+    public void toastOk(){
+        Toast toast = Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 90);
+        toast.show();
+    }
 
 }
 

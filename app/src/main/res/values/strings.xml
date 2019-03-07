@@ -10,4 +10,6 @@
     <string name="parrafo_recuperar_contraseña">Estimado usuario, a continuación digite su email y posteriormente el sistema enviará un enlace para que pueda recuperar su cuenta.</string>
     <string name="titulo_crear_usuario">Crear usuario</string>
     <string name="parrafo_crear_usuario">Estimado usuario, a continuación digite las credenciales que le son solicitadas para proceder con la creación de una nueva cuenta de usuario.</string>
+    <string name="regresar_main_activity">Volver al inicio</string>
+    <string name="cancelar_ir_main">Cancelar</string>
 </resources>

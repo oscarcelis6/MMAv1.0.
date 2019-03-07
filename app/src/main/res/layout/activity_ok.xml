@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.OkActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionOk"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="180dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_fileName="ok.json"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegresarMenuPrincipal"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/regresar_main_activity"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        />
+
+
+</LinearLayout>
