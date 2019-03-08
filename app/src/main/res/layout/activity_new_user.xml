@@ -110,6 +110,18 @@
 
         />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegresarMenuPrincipal"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/cancelar_ir_main"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp"
+        />
+
 
 
 </LinearLayout>

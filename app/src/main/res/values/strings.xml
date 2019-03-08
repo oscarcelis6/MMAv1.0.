@@ -12,4 +12,5 @@
     <string name="parrafo_crear_usuario">Estimado usuario, a continuación digite las credenciales que le son solicitadas para proceder con la creación de una nueva cuenta de usuario.</string>
     <string name="regresar_main_activity">Volver al inicio</string>
     <string name="cancelar_ir_main">Cancelar</string>
+    <string name="cerrar_sesion">Cerrar sesion</string>
 </resources>

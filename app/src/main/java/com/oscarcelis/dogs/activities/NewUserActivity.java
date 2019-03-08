@@ -29,6 +29,7 @@ public class NewUserActivity extends AppCompatActivity{
     private EditText edtEmailNewUser;
     private EditText edtPasswordNewUser;
     private CheckBox chkVisualizarClave;
+    private Button btnCancelar;
 
     private FirebaseAuth firebaseAuth;
 
@@ -45,6 +46,15 @@ public class NewUserActivity extends AppCompatActivity{
         edtPasswordNewUser = findViewById(R.id.edtPasswordNewUser);
         btnNewUser = findViewById(R.id.btnCrearCuenta);
         chkVisualizarClave = findViewById(R.id.checkboxPassword);
+
+        btnCancelar = findViewById(R.id.btnRegresarMenuPrincipal);
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelar();
+            }
+        });
 
         chkVisualizarClave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -66,25 +76,31 @@ public class NewUserActivity extends AppCompatActivity{
 
     }
 
+    private void cancelar() {
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
     // [START create_user_with_email]
     private void registrarUsuario(){
-        String emailLogin = edtEmailNewUser.getText().toString().trim();
-        String password = edtPasswordNewUser.getText().toString().trim();
+        String emailNewUser = edtEmailNewUser.getText().toString().trim();
+        String passwordNewUser = edtPasswordNewUser.getText().toString().trim();
 
-        if(TextUtils.isEmpty(emailLogin)){
+        if(TextUtils.isEmpty(emailNewUser)){
             //Valida si el campo email está vacío
             Toast.makeText(this,"Ingrese un email válido",Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(TextUtils.isEmpty(password)){
+        if(TextUtils.isEmpty(passwordNewUser)){
             //Valida si el campo password está vacío
             Toast.makeText(this,"Ingrese una contraseña",Toast.LENGTH_SHORT).show();
             return;
         }
 
 
-        firebaseAuth.createUserWithEmailAndPassword(emailLogin, password)
+        firebaseAuth.createUserWithEmailAndPassword(emailNewUser, passwordNewUser)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -95,7 +111,7 @@ public class NewUserActivity extends AppCompatActivity{
                             finish();
                         }else{
                             Toast.makeText(NewUserActivity.this,
-                                    "No se pudo registrar el usuario, intente de nuevo",
+                                    "No se pudo registrar el usuario, verifique los datos ingresados",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
