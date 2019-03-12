@@ -3,6 +3,9 @@
     package="com.oscarcelis.dogs">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
@@ -11,13 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activities.PrincipalActivity"></activity>
-
-        <activity android:name=".activities.OkResetPasswordActivity" ></activity>
-
-        <activity android:name=".activities.OkActivity" ></activity>
-
+        <activity android:name=".activities.NewDogActivity"></activity>
+        <activity android:name=".activities.NewRegisterActivity" />
+        <activity android:name=".activities.PrincipalActivity" />
+        <activity android:name=".activities.OkResetPasswordActivity" />
+        <activity android:name=".activities.OkActivity" />
         <activity
             android:name=".activities.NewUserActivity"
             android:configChanges="screenSize|orientation"
@@ -29,15 +30,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".activities.ResetPasswordActivity"
             android:configChanges="screenSize|orientation"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateHidden" >
-         </activity>
-
-        <!-- Soporte para versiones menores -->
+            android:windowSoftInputMode="stateHidden" /> <!-- Soporte para versiones menores -->
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".MainActivity" />
@@ -46,7 +43,6 @@
             android:name=".MainActivity"
             android:configChanges="screenSize|orientation"
             android:windowSoftInputMode="stateHidden">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

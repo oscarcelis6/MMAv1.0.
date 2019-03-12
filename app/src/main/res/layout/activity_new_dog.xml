@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.NewDogActivity"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+ <androidx.appcompat.widget.AppCompatTextView
+     android:id="@+id/txtEmailUsuarioActual"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_nuevo_canino"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"/>
+
+       <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtNombreCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgMostrarImgCanino"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"/>
+    
+    
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPickFoto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar imagen"
+        android:layout_gravity="center"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBorrarFoto"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Cambiar foto"
+                android:layout_gravity="center"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtChip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite chip"
+        android:inputType="phone"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtRazaCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite raza"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtSexoCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite sexo"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtFechaNacimientoCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite fecha nac"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtColorCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Color del canino"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtSenasCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Señales"/>
+    
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtProcedenciaCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Procedencia"/>
+    
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtEspecialidadCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Especialidad"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGuardarDatosNuevoCanino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar datos"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar sesión"
+       />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

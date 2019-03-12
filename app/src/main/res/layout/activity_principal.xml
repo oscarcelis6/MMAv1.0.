@@ -22,22 +22,45 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnNuevoCanino"
+            android:id="@+id/btnNuevoRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:text="Nuevo Canino" />
+            android:layout_marginLeft="50dp"
+            android:text="Nuevo Registro" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConsultaRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity=""
-            android:text="Vacunación" />
+            android:text="Consultar registro" />
 
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnVerTotalidadRegistros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="Consultar todos los registros" />
+
+
+
+    </LinearLayout>
+
+
+
     <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="20dp
+"
         android:id="@+id/btnCerrarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

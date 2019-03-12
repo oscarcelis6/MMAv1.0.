@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -55,6 +56,12 @@ public class ResetPasswordActivity extends AppCompatActivity {
     public void restablecerClave(){
 
         String recoveryEmail = edtEmailPassword.getText().toString().trim();
+
+        if(TextUtils.isEmpty(recoveryEmail)){
+            //Valida si el campo email está vacío
+            Toast.makeText(this,"Ingrese un email válido",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         firebaseAuth.getInstance().sendPasswordResetEmail(recoveryEmail)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

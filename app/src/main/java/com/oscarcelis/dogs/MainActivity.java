@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.Gravity;
@@ -26,7 +28,7 @@ import com.oscarcelis.dogs.activities.OkActivity;
 import com.oscarcelis.dogs.activities.PrincipalActivity;
 import com.oscarcelis.dogs.activities.ResetPasswordActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private EditText edtEmail;
     private EditText edtPassword;
@@ -43,10 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         firebaseAuth = FirebaseAuth.getInstance();
-
-
 
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
@@ -54,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
         btnIngresar = findViewById(R.id.btnIngresar);
         btnRecuperarClave = findViewById(R.id.btnRecuperarClave);
         btnCrearCuenta = findViewById(R.id.btnCrearCuenta);
+
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser()!=null){
+                    startActivity(new Intent(MainActivity.this,PrincipalActivity.class));
+                }else{}
+            }
+        };
 
         chkvisualizarClave = findViewById(R.id.checkboxPassword);
 
@@ -73,8 +81,16 @@ public class MainActivity extends AppCompatActivity {
         btnRecuperarClave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 abrirRecuperarClaveActivity();
+            }
+        });
+
+
+
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUsuario();
             }
         });
 
@@ -84,14 +100,9 @@ public class MainActivity extends AppCompatActivity {
                 crearNuevoUsuario();
             }
         });
-
-        btnIngresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginUsuario();
-            }
-        });
     }
+
+
 
     private void crearNuevoUsuario() {
         Intent i = new Intent(getApplicationContext(), NewUserActivity.class);
@@ -108,6 +119,18 @@ public class MainActivity extends AppCompatActivity {
     private void loginUsuario(){
         String emailLogin = edtEmail.getText().toString().trim();
         String passwordLogin = edtPassword.getText().toString().trim();
+
+        if(TextUtils.isEmpty(emailLogin)){
+            //Valida si el campo email está vacío
+            Toast.makeText(this,"Ingrese un email válido",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(passwordLogin)){
+            //Valida si el campo password está vacío
+            Toast.makeText(this,"Ingrese una contraseña",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         firebaseAuth.signInWithEmailAndPassword(emailLogin, passwordLogin)
         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -127,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-
     private void toastOk() {
         Toast toast = Toast.makeText(this,
                 "Estás autenticado como "+ firebaseAuth.getCurrentUser().getEmail(), Toast.LENGTH_LONG);
@@ -135,4 +157,10 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        firebaseAuth.addAuthStateListener(authStateListener);
+    }
 }
+

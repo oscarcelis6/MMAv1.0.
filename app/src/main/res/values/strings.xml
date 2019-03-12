@@ -13,4 +13,5 @@
     <string name="regresar_main_activity">Volver al inicio</string>
     <string name="cancelar_ir_main">Cancelar</string>
     <string name="cerrar_sesion">Cerrar sesion</string>
+    <string name="registro_nuevo_canino">Registrar nuevo canino</string>
 </resources>
